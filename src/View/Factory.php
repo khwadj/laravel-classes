@@ -5,6 +5,10 @@ namespace Khwadj\View;
 use Illuminate\View\Factory as IlluminateFactory;
 use Khwadj\View\View;
 
+/**
+ * Class Factory
+ * @package Khwadj\View
+ */
 class Factory extends IlluminateFactory
 {
   /**

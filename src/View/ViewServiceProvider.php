@@ -5,6 +5,10 @@ namespace Khwadj\View;
 use Khwadj\View\Factory;
 use Illuminate\View\ViewServiceProvider as IlluminateViewServiceProvider;
 
+/**
+ * Class ViewServiceProvider
+ * @package Khwadj\View
+ */
 class ViewServiceProvider extends IlluminateViewServiceProvider
 {
   /**
