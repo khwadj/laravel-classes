@@ -1,6 +1,6 @@
 <?php
 
-namespace Khwadj;
+namespace Khwadj\View;
 
 use \Illuminate\View\View as IlluminateView;
 
