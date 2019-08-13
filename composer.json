@@ -1,0 +1,23 @@
+{
+    "name": "khwadj/laravel-utility-classes",
+    "description": "Collection of utility classes",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://github.com/khwadj/laravel-classes",
+    "authors": [
+        {
+            "name": "Pawlo Riveros",
+            "email": "khwadj@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.2.18",
+        "laravel/framework": "5.8.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Khwadj\\": "src/"
+        }
+    }
+}
