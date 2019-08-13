@@ -43,7 +43,7 @@ class Model extends EloquentModel
    */
   function __call($method, $args)
   {
-    // Intercept _with_cache calls
+    // Intercept _with_local_cache calls
     if ( self::StringHelper($method, static::$_local_cache_suffix) )
     {
       $real_method = substr($method, 0, strpos($method, static::$_local_cache_suffix));
@@ -74,7 +74,7 @@ class Model extends EloquentModel
    */
   static function __callStatic($method, $args)
   {
-    // Intercept _with_cache calls
+    // Intercept _with_local_cache calls
     if ( StringHelper::endsWith($method, static::$_local_cache_suffix) )
     {
       $real_method = substr($method, 0, strpos($method, static::$_local_cache_suffix));
