@@ -1,6 +1,6 @@
 <?php
 
-namespace Khwadj\Helper;
+namespace Khwadj\Helpers;
 
 class StringHelper
 {

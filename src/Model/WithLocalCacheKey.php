@@ -11,10 +11,10 @@ trait WithLocalCacheKey
   /**
    * @return string
    */
-  abstract function getLocalCacheKey();
+  abstract public function getLocalCacheKey();
 
   /**
    * @return string
    */
-  abstract static function getStaticLocalCacheKey();
+  abstract public static function getStaticLocalCacheKey();
 }
