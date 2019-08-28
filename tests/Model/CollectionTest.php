@@ -35,8 +35,6 @@ final class CollectionTest extends TestCase
     $this->assertTrue($collection->has($key2));
     $this->assertEquals($value1, $collection->get($key1));
     $this->assertEquals($value2, $collection->get($key2));
-
-    var_dump($collection);
   }
 }
 

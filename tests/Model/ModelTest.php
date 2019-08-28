@@ -22,6 +22,11 @@ final class ModelTest extends TestCase
     $this->assertEquals(ModelTestDummy::class, ModelTestDummy::getStaticLocalCacheKey());
   }
 
+  public function testTest(): void
+  {
+    //ModelTestDummy::find(1);
+  }
+
   /*
   public function _testCacheCall(): void
   {
