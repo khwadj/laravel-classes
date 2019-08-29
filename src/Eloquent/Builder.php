@@ -4,6 +4,12 @@ namespace Khwadj\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder as BaseBuilder;
 
+/**
+ * Class Builder
+ * @package Khwadj\Eloquent
+ *
+ * Overrides Eloquent Builder to allow Eloquent Request to Provide key indexed collections as results
+ */
 class Builder extends BaseBuilder
 {
     /**

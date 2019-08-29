@@ -6,6 +6,12 @@ namespace Khwadj\Eloquent;
 use Illuminate\Database\Eloquent\Collection as BaseCollection;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * Class Collection
+ * @package Khwadj\Eloquent
+ *
+ * Basically an Eloquent Collection that indexes its items by key
+ */
 class Collection extends BaseCollection
 {
 

@@ -10,6 +10,8 @@ use Khwadj\Helpers\StringHelper;
 /**
  * Class Model
  * @package Khwadj\Eloquent
+ *
+ * Eloquent Models
  */
 class Model extends BaseModel
 {
