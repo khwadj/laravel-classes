@@ -9,7 +9,7 @@ use Khwadj\Helpers\StringHelper;
 
 /**
  * Class Model
- * @package Khwadj\Model
+ * @package Khwadj\Eloquent
  */
 class Model extends BaseModel
 {

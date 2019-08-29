@@ -4,7 +4,7 @@ namespace Khwadj\Eloquent;
 
 /**
  * Trait WithLocalCacheKey
- * @package Khwadj\Model
+ * @package Khwadj\Eloquent
  */
 trait WithLocalCache
 {
