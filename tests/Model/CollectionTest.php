@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Khwadj\Model\Collection;
+use Khwadj\Eloquent\Collection;
 use PHPUnit\Framework\TestCase;
 
 final class CollectionTest extends TestCase

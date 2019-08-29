@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-use Khwadj\Model\Model;
+use Khwadj\Eloquent\Model;
 use PHPUnit\Framework\TestCase;
 
 final class ModelTest extends TestCase

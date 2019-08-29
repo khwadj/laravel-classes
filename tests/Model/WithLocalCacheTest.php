@@ -40,7 +40,7 @@ final class WithLocalCacheTest extends TestCase
 
 class WithLocalCacheTestDummy
 {
-  use \Khwadj\Model\WithLocalCache;
+  use \Khwadj\Eloquent\WithLocalCache;
 
   // needed function to implement the trait
 

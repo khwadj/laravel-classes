@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Khwadj\Model;
+namespace Khwadj\Eloquent;
 
 use Illuminate\Database\Eloquent\Collection as BaseCollection;
 use Illuminate\Database\Eloquent\Model;
@@ -29,25 +29,5 @@ class Collection extends BaseCollection
 
         return $this;
     }
-
-
-
-    /**
-     * Results array of items from Collection or Arrayable.
-     *
-     * @param mixed $items
-     * @return array
-     */
-    //TODO: see if it's useful to redeclare
-    /*
-    protected function getArrayableItems($items)
-    {
-      if ( is_array($items) )
-      {
-        return $items;
-      }
-      else return parent::getArrayableItems($items);
-    }
-    */
 
 }
