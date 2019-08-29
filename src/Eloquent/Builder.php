@@ -2,7 +2,7 @@
 
 namespace Khwadj\Eloquent;
 
-use Illuminate\Database\Query\Builder as BaseBuilder;
+use Illuminate\Database\Eloquent\Builder as BaseBuilder;
 
 class Builder extends BaseBuilder
 {

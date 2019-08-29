@@ -46,7 +46,7 @@ class Model extends BaseModel
      * Create a new Eloquent query builder for the model.
      *
      * @param \Illuminate\Database\Query\Builder $query
-     * @return \Khwadj\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
+     * @return \Khwadj\Eloquent\Builder
      */
     public function newEloquentBuilder($query)
     {
