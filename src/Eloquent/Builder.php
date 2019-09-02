@@ -3,6 +3,7 @@
 namespace Khwadj\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder as BaseBuilder;
+use Khwadj\Eloquent\Collection;
 
 /**
  * Class Builder
@@ -31,5 +32,18 @@ class Builder extends BaseBuilder
         }
 
         return $instance->newCollection($indexed);
+    }
+
+    /**
+     * @param       $key
+     * @param array $columns
+     * @return Khwadj\Eloquent\Collection
+     */
+    public function get_and_remember_as($key, $columns = ['*'])
+    {
+        $result = $this->get($columns);
+        Cache::set($key, $result);
+
+        return $result;
     }
 }

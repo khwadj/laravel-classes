@@ -16,13 +16,16 @@ use Khwadj\Helpers\StringHelper;
 class Model extends BaseModel
 {
     use WithLocalCache;
+    use WithLocalCacheKey;
+
+    /******************** CACHE *******************/
 
     /**
      * @return string
      */
     function getLocalCacheKey()
     {
-        return $this->getKey();
+        return static::getStaticLocalCacheKeyForId($this->getKey());
     }
 
     /**
@@ -32,6 +35,56 @@ class Model extends BaseModel
     {
         return static::class;
     }
+
+    /**
+     * @param $id
+     * @return string
+     */
+    static function getStaticLocalCacheKeyForId($id)
+    {
+        return static::getStaticLocalCacheKey().':'.$id;
+    }
+
+    /**
+     * @param $id
+     * @param $key
+     * @return Model
+     */
+    public function find_and_remember_as($id, $key)
+    {
+        /** @var Model $result */
+        $result = static::find($id);
+        Cache::set($key, $result);
+
+        return $result;
+    }
+
+    /**
+     * @param $id
+     * @return Model
+     */
+    public function find_and_remember($id)
+    {
+        return static::find_and_remember_as($id, static::getStaticLocalCacheKeyForId($id));
+    }
+
+    /**
+     * @param $id
+     * @return Model|mixed|null
+     */
+    public function find_or_recall($id)
+    {
+        $key = static::getStaticLocalCacheKeyForId($id);
+        if (Cache::has($key)) {
+            return Cache::get($key);
+        }
+        else {
+            return static::find_and_remember($id);
+        }
+    }
+
+
+    /******************** Query Builder ************************* /
 
     /**
      * Create a new Eloquent Collection instance.
@@ -54,6 +107,9 @@ class Model extends BaseModel
     {
         return new Builder($query);
     }
+
+
+    /******************** Call interception *******************/
 
     /**
      * Intercept with_khwadj_local_cache calls
@@ -110,5 +166,4 @@ class Model extends BaseModel
         // otherwise just call the real function
         return parent::__callStatic($method, $args);
     }
-
 }

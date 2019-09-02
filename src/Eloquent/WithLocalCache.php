@@ -8,36 +8,14 @@ namespace Khwadj\Eloquent;
  */
 trait WithLocalCache
 {
-    use WithLocalCacheKey;
-
-    /** @var array Local cache */
-    static protected $_local_cache = [];
-
-    static protected $_local_cache_suffix = '_with_khwadj_local_cache';
-
-    /**
-     * @return array
-     */
-    public static function getLocalCacheContent()
-    {
-        return static::$_local_cache;
-    }
-
-    /**
-     * @return string
-     */
-    public static function getLocalCacheSuffix()
-    {
-        return static::$_local_cache_suffix;
-    }
-
     /**
      * @param $key
      * @param $value
+     * @return mixed
      */
     public static function cacheSet($key, $value)
     {
-        static::$_local_cache[$key] = $value;
+        return Cache::set($key, $value);
     }
 
     /**
@@ -46,7 +24,7 @@ trait WithLocalCache
      */
     public static function cacheGet($key)
     {
-        return array_key_exists($key, static::$_local_cache) ? static::$_local_cache[$key] : NULL;
+        return Cache::get($key);
     }
 
     /**
@@ -55,6 +33,6 @@ trait WithLocalCache
      */
     public static function hasKey($key)
     {
-        return array_key_exists($key, static::$_local_cache);
+        return Cache::has($key);
     }
 }
