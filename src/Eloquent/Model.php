@@ -5,6 +5,7 @@ namespace Khwadj\Eloquent;
 use Illuminate\Database\Eloquent\Model as BaseModel;
 use Khwadj\Eloquent\Builder;
 use Khwadj\Eloquent\Collection;
+use Khwadj\Eloquent\WithCache;
 use Khwadj\Helpers\StringHelper;
 
 /**
@@ -15,8 +16,7 @@ use Khwadj\Helpers\StringHelper;
  */
 class Model extends BaseModel
 {
-    use WithLocalCache;
-    use WithLocalCacheKey;
+    use WithCache;
 
     /******************** CACHE *******************/
 
@@ -45,44 +45,6 @@ class Model extends BaseModel
         return static::getStaticLocalCacheKey().':'.$id;
     }
 
-    /**
-     * @param $id
-     * @param $key
-     * @return Model
-     */
-    public function find_and_remember_as($id, $key)
-    {
-        /** @var Model $result */
-        $result = static::find($id);
-        Cache::set($key, $result);
-
-        return $result;
-    }
-
-    /**
-     * @param $id
-     * @return Model
-     */
-    public function find_and_remember($id)
-    {
-        return static::find_and_remember_as($id, static::getStaticLocalCacheKeyForId($id));
-    }
-
-    /**
-     * @param $id
-     * @return Model|mixed|null
-     */
-    public function find_or_recall($id)
-    {
-        $key = static::getStaticLocalCacheKeyForId($id);
-        if (Cache::has($key)) {
-            return Cache::get($key);
-        }
-        else {
-            return static::find_and_remember($id);
-        }
-    }
-
 
     /******************** Query Builder ************************* /
 
@@ -106,6 +68,44 @@ class Model extends BaseModel
     public function newEloquentBuilder($query)
     {
         return new Builder($query);
+    }
+
+    /**
+     * @param $id
+     * @param $key
+     * @return Model
+     */
+    public function find_and_remember_as($id, $key)
+    {
+        /** @var Model $result */
+        $result = static::find($id);
+        static::cacheSet($key, $result);
+
+        return $result;
+    }
+
+    /**
+     * @param $id
+     * @return Model
+     */
+    public function find_and_remember($id)
+    {
+        return static::find_and_remember_as($id, static::getStaticLocalCacheKeyForId($id));
+    }
+
+    /**
+     * @param $id
+     * @return Model|mixed|null
+     */
+    public function find_or_recall($id)
+    {
+        $key = static::getStaticLocalCacheKeyForId($id);
+        if (static::cacheHasKey($key)) {
+            return static::cacheGet($key);
+        }
+        else {
+            return static::find_and_remember($id);
+        }
     }
 
 
