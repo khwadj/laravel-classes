@@ -110,14 +110,16 @@ class Model extends BaseModel
 
 
     /******************** Call interception *******************/
+    //TODO: see if useful or not, rewrite, etc
 
     /**
-     * Intercept with_khwadj_local_cache calls
+     * Intercept with__cache calls
      *
      * @param string $method
      * @param array  $args
      * @return mixed
      */
+    /*
     function __call($method, $args)
     {
         // Intercept _with_local_cache calls
@@ -138,6 +140,7 @@ class Model extends BaseModel
         // otherwise just call the real function
         return parent::__call($method, $args);
     }
+    */
 
     /**
      * Intercept with_khwadj_local_cache calls
@@ -146,6 +149,7 @@ class Model extends BaseModel
      * @param array  $args
      * @return mixed
      */
+    /*
     static function __callStatic($method, $args)
     {
         // Intercept _with_local_cache calls
@@ -166,4 +170,5 @@ class Model extends BaseModel
         // otherwise just call the real function
         return parent::__callStatic($method, $args);
     }
+    */
 }
