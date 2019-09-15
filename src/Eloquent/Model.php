@@ -97,7 +97,7 @@ class Model extends BaseModel
      * @param $id
      * @return Model|mixed|null
      */
-    public function find_or_recall($id)
+    public static function find_or_recall($id)
     {
         $key = static::getStaticLocalCacheKeyForId($id);
         if (static::cacheHasKey($key)) {
