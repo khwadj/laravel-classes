@@ -88,7 +88,7 @@ class Model extends BaseModel
      * @param $id
      * @return Model
      */
-    public function static find_and_remember($id)
+    public static function find_and_remember($id)
     {
         return static::find_and_remember_as($id, static::getStaticLocalCacheKeyForId($id));
     }
