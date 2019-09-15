@@ -75,7 +75,7 @@ class Model extends BaseModel
      * @param $key
      * @return Model
      */
-    public function find_and_remember_as($id, $key)
+    public static function find_and_remember_as($id, $key)
     {
         /** @var Model $result */
         $result = static::find($id);
@@ -88,7 +88,7 @@ class Model extends BaseModel
      * @param $id
      * @return Model
      */
-    public function find_and_remember($id)
+    public function static find_and_remember($id)
     {
         return static::find_and_remember_as($id, static::getStaticLocalCacheKeyForId($id));
     }
