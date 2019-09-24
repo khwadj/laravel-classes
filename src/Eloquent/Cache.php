@@ -39,4 +39,17 @@ class Cache
     {
         return array_key_exists($key, static::$_items);
     }
+
+    public static function empty()
+    {
+        self::$_items = [];
+    }
+
+    /**
+     * @return int
+     */
+    public static function count()
+    {
+        return count(self::$_items);
+    }
 }
