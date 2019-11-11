@@ -1,4 +1,4 @@
-## Utility classes for Laravel >= 5.8
+## Utility classes for Laravel >= 5.8 <7.0.0
 
 ### Eloquent
 

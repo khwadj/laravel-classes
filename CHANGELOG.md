@@ -1,5 +1,9 @@
 # Change Log
 
+## [0.2.1](https://github.com/khwadj/laravel-classes/tree/0.2.1) (2019-11-11)
+### Added
+- extends Laravel compatibility to 6.*.*
+
 ## [0.2.0](https://github.com/khwadj/laravel-classes/tree/0.2.0) (2019-10-09)
 ### Added
 - primary key indexed collection returns from builder
