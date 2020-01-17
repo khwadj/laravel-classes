@@ -46,4 +46,33 @@ class Builder extends BaseBuilder
 
         return $result;
     }
+
+    /**
+     * @param       $key
+     * @param array $columns
+     *
+     * @return \Illuminate\Database\Eloquent\Model|\Khwadj\Eloquent\Builder|object|null
+     */
+    public function first_and_remember_as($key, $columns = ['*'])
+    {
+        $result = $this->first($columns);
+        Cache::set($key, $result);
+
+        return $result;
+    }
+
+    /**
+     * @param array $columns
+     *
+     * @return mixed
+     */
+    public function first_and_remember($columns = ['*'])
+    {
+        $result = $this->first($columns);
+        $id = $result->getKey();
+        $key = forward_static_call_array([get_class($result), 'getStaticLocalCacheKeyForId'], [$id]);
+        Cache::set($key, $result);
+
+        return $result;
+    }
 }
