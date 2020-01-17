@@ -17,6 +17,7 @@ Base Model class offers:
 - custom builder to retrieve and cache
 <br> `MyModel::where(...)->get_and_remember_as('MyKey');`
 <br> `MyModel::where(...)->first_and_remember_as('MyKey');`
+<br> `MyModel::where(...)->first_and_remember();`
 
 Collection as results of queries on a Model return an instance of `khwadj\Eloquent\Collection` that is indexed by primary key
 
