@@ -70,6 +70,9 @@ class Builder extends BaseBuilder
     {
         $result = $this->first($columns);
         $id = $result->getKey();
-        return static::find_and_remember_as($id, static::getStaticLocalCacheKeyForId($id));
+        $key = forward_static_call_array([get_class($result), 'getStaticLocalCacheKeyForId'], [$id]);
+        Cache::set($key, $result);
+
+        return $result;
     }
 }
