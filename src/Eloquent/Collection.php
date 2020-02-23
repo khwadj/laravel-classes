@@ -36,4 +36,40 @@ class Collection extends BaseCollection
         return $this;
     }
 
+    /**
+     * Run a dictionary map over the items.
+     *
+     * The callback should return an associative array with a single key/value pair.
+     *
+     * @param callable $callback
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    public function mapToDictionary(callable $callback)
+    {
+        $dictionary = [];
+
+        foreach ( $this->items as $key => $item ) {
+            $pair = $callback($item, $key);
+
+            $key = key($pair);
+
+            $value = reset($pair);
+
+            if ( !isset($dictionary[$key]) ) {
+                $dictionary[$key] = [];
+            }
+
+            if ( $item_key = $value instanceof Model ? $value->getKey() : NULL ) {
+                $dictionary[$key][$item_key] = $value;
+            }
+            else {
+                $dictionary[$key][] = $value;
+            }
+
+        }
+
+        return new static($dictionary);
+    }
+
 }
