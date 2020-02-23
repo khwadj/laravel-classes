@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.3.0](https://github.com/khwadj/laravel-classes/tree/0.3.0) (2020-02-23)
+### Added
+- Fixed a missing feature where Eloquent Models eager loaded many relationships would not be indexed by key
+- removed composer.phar
+
 ## [0.2.2](https://github.com/khwadj/laravel-classes/tree/0.2.2) (2020-01-17)
 ### Added
 - Builder::first_and_remember
