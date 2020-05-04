@@ -1,5 +1,5 @@
 ## Utility classes for Laravel >= 5.8 
-### Highest Laravel compatibily tested as of this readme : 7.0
+### Highest Laravel compatibily tested as of this readme : 7.9.2
 
 Version 0.2   max tested compatibility : Laravel 5.8 (hard limitation < 6.1.0 per composer.json)
 
@@ -9,12 +9,12 @@ Version 0.2.2 max tested compatibility : Laravel 5.8 (hard limitation < 7.0.0 pe
 
 Version 0.3   max tested compatibility : Laravel 6.2 (hard limitation < 7.0.0 per composer.json)
 
-Version 0.4     max tested compatibility : Laravel 7.9.2s
+Version 0.4     max tested compatibility : Laravel 7.9.2
 
 
 
 Recommended version is 0.4.0 for any version of Laravel ( >= 5.8 )
-Minimum version usable is 0.3.0. Versions before that are not reliable.
+Minimum version usable is 0.3.0. Versions before that are not reliable and should be avoided.
 
 ### Eloquent
 
