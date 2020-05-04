@@ -3,7 +3,6 @@
 namespace Khwadj\View;
 
 use Illuminate\View\Factory as IlluminateFactory;
-use Khwadj\View\View;
 
 /**
  * Class Factory
@@ -17,7 +16,7 @@ class Factory extends IlluminateFactory
      * @param string                                        $view
      * @param string                                        $path
      * @param \Illuminate\Contracts\Support\Arrayable|array $data
-     * @return \Illuminate\Contracts\View\View
+     * @return \Khwadj\View\View
      */
     protected function viewInstance($view, $path, $data)
     {

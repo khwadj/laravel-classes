@@ -3,10 +3,6 @@
 namespace Khwadj\Eloquent;
 
 use Illuminate\Database\Eloquent\Model as BaseModel;
-use Khwadj\Eloquent\Builder;
-use Khwadj\Eloquent\Collection;
-use Khwadj\Eloquent\WithCache;
-use Khwadj\Helpers\StringHelper;
 
 /**
  * Class Model
@@ -16,7 +12,33 @@ use Khwadj\Helpers\StringHelper;
  */
 class Model extends BaseModel
 {
-    use WithCache;
+    use WithMemoryRuntimeCache;
+
+    /******************** Query Builder ************************* /
+     *
+     * /**
+     * Create a new Eloquent Collection instance.
+     *
+     * @param array $models
+     *
+     * @return \Khwadj\Eloquent\Collection
+     */
+    public function newCollection(array $models = [])
+    {
+        return new Collection($models);
+    }
+
+    /**
+     * Create a new Eloquent query builder for the model.
+     *
+     * @param \Illuminate\Database\Query\Builder $query
+     *
+     * @return \Khwadj\Eloquent\Builder
+     */
+    public function newEloquentBuilder($query)
+    {
+        return new Builder($query);
+    }
 
     /******************** CACHE *******************/
 
@@ -38,42 +60,21 @@ class Model extends BaseModel
 
     /**
      * @param $id
+     *
      * @return string
      */
     static function getStaticLocalCacheKeyForId($id)
     {
-        return static::getStaticLocalCacheKey().':'.$id;
+        return static::getStaticLocalCacheKey().':'. $id;
     }
 
-
-    /******************** Query Builder ************************* /
-
     /**
-     * Create a new Eloquent Collection instance.
+     * Find a model by its PK and remember it with a custom key
      *
-     * @param array $models
-     * @return \Illuminate\Database\Eloquent\Collection|\Khwadj\Eloquent\Collection
-     */
-    public function newCollection(array $models = [])
-    {
-        return new Collection($models);
-    }
-
-    /**
-     * Create a new Eloquent query builder for the model.
-     *
-     * @param \Illuminate\Database\Query\Builder $query
-     * @return \Khwadj\Eloquent\Builder
-     */
-    public function newEloquentBuilder($query)
-    {
-        return new Builder($query);
-    }
-
-    /**
      * @param $id
      * @param $key
-     * @return Model
+     *
+     * @return \Khwadj\Eloquent\Model|null
      */
     public static function find_and_remember_as($id, $key)
     {
@@ -85,8 +86,11 @@ class Model extends BaseModel
     }
 
     /**
+     * Find a model by its PK and remember it by its unique key
+     *
      * @param $id
-     * @return Model
+     *
+     * @return \Khwadj\Eloquent\Model|null
      */
     public static function find_and_remember($id)
     {
@@ -94,8 +98,11 @@ class Model extends BaseModel
     }
 
     /**
+     * Attemps to recall a model by its PK if it has been retrieved earlier
+     *
      * @param $id
-     * @return Model|mixed|null
+     *
+     * @return \Khwadj\Eloquent\Model|mixed|null
      */
     public static function find_or_recall($id)
     {

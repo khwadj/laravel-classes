@@ -8,11 +8,13 @@ namespace Khwadj\Eloquent;
  *
  * Eloquent Models
  */
-class Cache
+class MemoryRuntimeCache
 {
     protected static $_items = [];
 
     /**
+     * Gets a key entry if it exists
+     *
      * @param $key
      * @return mixed|null
      */
@@ -22,6 +24,8 @@ class Cache
     }
 
     /**
+     * Set the entry for a key
+     *
      * @param $key
      * @param $value
      * @return mixed
@@ -32,6 +36,8 @@ class Cache
     }
 
     /**
+     * Return whether there's an entry for this key
+     *
      * @param $key
      * @return bool
      */
@@ -40,12 +46,14 @@ class Cache
         return array_key_exists($key, static::$_items);
     }
 
-    public static function empty()
+    public static function empty(): void
     {
         self::$_items = [];
     }
 
     /**
+     * Counts the cache items
+     *
      * @return int
      */
     public static function count()
