@@ -1,9 +1,20 @@
 ## Utility classes for Laravel >= 5.8 
 ### Highest Laravel compatibily tested as of this readme : 7.0
 
-Tested with Laravel 5.8 up to version 0.2, then tested with Laravel 6.X
+Version 0.2   max tested compatibility : Laravel 5.8 (hard limitation < 6.1.0 per composer.json)
 
-Recommended version is 0.3.0 for any version of Laravel ( >= 5.8 )
+Version 0.2.1 max tested compatibility : Laravel 5.8 (hard limitation < 7.0.0 per composer.json)
+
+Version 0.2.2 max tested compatibility : Laravel 5.8 (hard limitation < 7.0.0 per composer.json)
+
+Version 0.3   max tested compatibility : Laravel 6.2 (hard limitation < 7.0.0 per composer.json)
+
+Version 0.4     max tested compatibility : Laravel 7.9.2s
+
+
+
+Recommended version is 0.4.0 for any version of Laravel ( >= 5.8 )
+Minimum version usable is 0.3.0. Versions before that are not reliable.
 
 ### Eloquent
 
@@ -47,6 +58,7 @@ if ( $model_one->relation_many->has(555) ) {
 }
 ```
 
+Note: PK is determined by `$model->getKey()` which will be empty if your model doesn't use an auto-incremented PK. You can update this function to return any unique stringable value representing your model.
 
 ### View Service Provider
 
