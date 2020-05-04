@@ -28,7 +28,6 @@ class StringHelper
         if ( $encoding === NULL ) $encoding = mb_internal_encoding();
         $len = mb_strlen($string, $encoding);
         $res = [];
-        $index = 0;
         for ($i = 0; $i < $len; $i += $size) {
             $res[] = mb_substr($string, $i, $size, $encoding);
         }
