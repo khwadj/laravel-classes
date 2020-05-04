@@ -1,8 +1,9 @@
-## Utility classes for Laravel >= 5.8 <7.0.0
+## Utility classes for Laravel >= 5.8 
+### Highest Laravel compatibily tested as of this readme : 7.0
 
 Tested with Laravel 5.8 up to version 0.2, then tested with Laravel 6.X
 
-Recommended version is 0.3.0
+Recommended version is 0.3.0 for any version of Laravel ( >= 5.8 )
 
 ### Eloquent
 

@@ -3,7 +3,6 @@
 namespace Khwadj\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder as BaseBuilder;
-use Khwadj\Eloquent\Collection;
 
 /**
  * Class Builder
@@ -17,7 +16,8 @@ class Builder extends BaseBuilder
      * Create a collection of models from plain arrays.
      *
      * @param array $items
-     * @return \Illuminate\Database\Eloquent\Collection
+     *
+     * @return Collection
      */
     public function hydrate(array $items)
     {
@@ -26,7 +26,7 @@ class Builder extends BaseBuilder
         // try and get an id
         $indexed = [];
         foreach ( $items as $item ) {
-            /** @var \Khwadj\Eloquent\Model $i */
+            /** @var Model $i */
             $i = $instance->newFromBuilder($item);
             $indexed[$i->getKey()] = $i;
         }
@@ -37,12 +37,13 @@ class Builder extends BaseBuilder
     /**
      * @param       $key
      * @param array $columns
-     * @return Khwadj\Eloquent\Collection
+     *
+     * @return Collection
      */
     public function get_and_remember_as($key, $columns = ['*'])
     {
         $result = $this->get($columns);
-        Cache::set($key, $result);
+        MemoryRuntimeCache::set($key, $result);
 
         return $result;
     }
@@ -51,12 +52,12 @@ class Builder extends BaseBuilder
      * @param       $key
      * @param array $columns
      *
-     * @return \Illuminate\Database\Eloquent\Model|\Khwadj\Eloquent\Builder|object|null
+     * @return Model|Builder|Collection|null
      */
     public function first_and_remember_as($key, $columns = ['*'])
     {
         $result = $this->first($columns);
-        Cache::set($key, $result);
+        MemoryRuntimeCache::set($key, $result);
 
         return $result;
     }
@@ -64,14 +65,15 @@ class Builder extends BaseBuilder
     /**
      * @param array $columns
      *
-     * @return mixed
+     * @return Model|Builder|Collection|null
      */
     public function first_and_remember($columns = ['*'])
     {
-        $result = $this->first($columns);
-        $id = $result->getKey();
-        $key = forward_static_call_array([get_class($result), 'getStaticLocalCacheKeyForId'], [$id]);
-        Cache::set($key, $result);
+        if ( $result = $this->first($columns) ) {
+            $id = $result->getKey();
+            $key = forward_static_call_array([get_class($result), 'getStaticLocalCacheKeyForId'], [$id]);
+            MemoryRuntimeCache::set($key, $result);
+        }
 
         return $result;
     }

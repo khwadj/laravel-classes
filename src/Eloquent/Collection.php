@@ -4,7 +4,6 @@
 namespace Khwadj\Eloquent;
 
 use Illuminate\Database\Eloquent\Collection as BaseCollection;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Collection
@@ -15,13 +14,13 @@ use Illuminate\Database\Eloquent\Model;
 class Collection extends BaseCollection
 {
 
-
     /**
      * Add an item to the collection.
      *
      * @param mixed $item
      * @param       $key
-     * @return \Khwadj\Collection
+     *
+     * @return Collection
      */
     public function add($item, $key = NULL)
     {
@@ -43,7 +42,7 @@ class Collection extends BaseCollection
      *
      * @param callable $callback
      *
-     * @return \Illuminate\Support\Collection
+     * @return Collection
      */
     public function mapToDictionary(callable $callback)
     {

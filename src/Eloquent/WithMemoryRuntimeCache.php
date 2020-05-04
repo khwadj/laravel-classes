@@ -6,34 +6,39 @@ namespace Khwadj\Eloquent;
  * Trait WithLocalCacheKey
  * @package Khwadj\Eloquent
  */
-//TODO: allow customizable cache engine, maybe use app's config
-trait WithCache
+trait WithMemoryRuntimeCache
 {
     /**
+     * Sets an entry for a key
+     *
      * @param $key
      * @param $value
      * @return mixed
      */
     public static function cacheSet($key, $value)
     {
-        return Cache::set($key, $value);
+        return MemoryRuntimeCache::set($key, $value);
     }
 
     /**
+     * Get the entry for a key if it's present
+     *
      * @param $key
      * @return mixed|null
      */
     public static function cacheGet($key)
     {
-        return Cache::get($key);
+        return MemoryRuntimeCache::get($key);
     }
 
     /**
+     * Returns whether the given key is present
+     *
      * @param $key
      * @return bool
      */
     public static function cacheHasKey($key)
     {
-        return Cache::has($key);
+        return MemoryRuntimeCache::has($key);
     }
 }
