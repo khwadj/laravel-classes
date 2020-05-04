@@ -9,7 +9,7 @@ Version 0.2.2 max tested compatibility : Laravel 5.8 (hard limitation < 7.0.0 pe
 
 Version 0.3   max tested compatibility : Laravel 6.2 (hard limitation < 7.0.0 per composer.json)
 
-Version 0.4     max tested compatibility : Laravel 7.9.2
+Version 0.4   max tested compatibility : Laravel 7.9.2
 
 
 

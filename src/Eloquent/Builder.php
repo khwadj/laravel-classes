@@ -17,7 +17,7 @@ class Builder extends BaseBuilder
      *
      * @param array $items
      *
-     * @return Collection
+     * @return \Khwadj\Eloquent\Collection
      */
     public function hydrate(array $items)
     {
@@ -38,7 +38,7 @@ class Builder extends BaseBuilder
      * @param       $key
      * @param array $columns
      *
-     * @return Collection
+     * @return \Khwadj\Eloquent\Collection
      */
     public function get_and_remember_as($key, $columns = ['*'])
     {
@@ -52,7 +52,7 @@ class Builder extends BaseBuilder
      * @param       $key
      * @param array $columns
      *
-     * @return Model|Builder|Collection|null
+     * @return \Khwadj\Eloquent\Model|\Khwadj\Eloquent\Builder|\Khwadj\Eloquent\Collection|null
      */
     public function first_and_remember_as($key, $columns = ['*'])
     {
@@ -65,7 +65,7 @@ class Builder extends BaseBuilder
     /**
      * @param array $columns
      *
-     * @return Model|Builder|Collection|null
+     * @return \Khwadj\Eloquent\Model|\Khwadj\Eloquent\Builder|\Khwadj\Eloquent\Collection|null
      */
     public function first_and_remember($columns = ['*'])
     {

@@ -2,7 +2,6 @@
 
 namespace Khwadj\View;
 
-use Khwadj\View\Factory;
 use Illuminate\View\ViewServiceProvider as IlluminateViewServiceProvider;
 
 /**
@@ -17,7 +16,7 @@ class ViewServiceProvider extends IlluminateViewServiceProvider
      * @param \Illuminate\View\Engines\EngineResolver $resolver
      * @param \Illuminate\View\ViewFinderInterface    $finder
      * @param \Illuminate\Contracts\Events\Dispatcher $events
-     * @return \Illuminate\View\Factory
+     * @return \Khwadj\View\Factory
      */
     protected function createFactory($resolver, $finder, $events)
     {

@@ -21,7 +21,7 @@ class Model extends BaseModel
      *
      * @param array $models
      *
-     * @return Collection
+     * @return \Khwadj\Eloquent\Collection
      */
     public function newCollection(array $models = [])
     {
@@ -33,7 +33,7 @@ class Model extends BaseModel
      *
      * @param \Illuminate\Database\Query\Builder $query
      *
-     * @return Builder
+     * @return \Khwadj\Eloquent\Builder
      */
     public function newEloquentBuilder($query)
     {
@@ -74,7 +74,7 @@ class Model extends BaseModel
      * @param $id
      * @param $key
      *
-     * @return Model|null
+     * @return \Khwadj\Eloquent\Model|null
      */
     public static function find_and_remember_as($id, $key)
     {
@@ -90,7 +90,7 @@ class Model extends BaseModel
      *
      * @param $id
      *
-     * @return Model|null
+     * @return \Khwadj\Eloquent\Model|null
      */
     public static function find_and_remember($id)
     {
@@ -102,7 +102,7 @@ class Model extends BaseModel
      *
      * @param $id
      *
-     * @return Model|mixed|null
+     * @return \Khwadj\Eloquent\Model|mixed|null
      */
     public static function find_or_recall($id)
     {
