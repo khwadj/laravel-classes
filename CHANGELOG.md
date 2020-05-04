@@ -1,5 +1,10 @@
 # Change Log
 
+## [0.4.0](https://github.com/khwadj/laravel-classes/tree/0.4.0) (2020-05-04)
+### Added
+- Renamed Cache to MemoryRuntimeCache for clarity
+- Removed laravel hard cap compatibility
+
 ## [0.3.0](https://github.com/khwadj/laravel-classes/tree/0.3.0) (2020-02-23)
 ### Added
 - Fixed a missing feature where Eloquent Models eager loaded many relationships would not be indexed by key

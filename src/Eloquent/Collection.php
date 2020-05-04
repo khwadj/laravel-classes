@@ -20,7 +20,7 @@ class Collection extends BaseCollection
      * @param mixed $item
      * @param       $key
      *
-     * @return Collection
+     * @return \Khwadj\Eloquent\Collection
      */
     public function add($item, $key = NULL)
     {
@@ -42,7 +42,7 @@ class Collection extends BaseCollection
      *
      * @param callable $callback
      *
-     * @return Collection
+     * @return \Khwadj\Eloquent\Collection
      */
     public function mapToDictionary(callable $callback)
     {
