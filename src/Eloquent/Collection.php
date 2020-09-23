@@ -29,7 +29,7 @@ class Collection extends BaseCollection
             if ( $item instanceof Model ) $key = $item->getKey();
         }
 
-        if ( $key ) $this->items[$key] = $item;
+        if ( $key !== NULL ) $this->items[$key] = $item;
         else $this->items[] = $item;
 
         return $this;

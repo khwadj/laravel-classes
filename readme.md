@@ -1,3 +1,9 @@
+
+**DISCLAIMER : ELOQUENT FUNCTIONS OF THIS MACKAGE WILL BREAK EAGERLOADING OF BELONGSTOMANY RELATIONSHIPS**
+
+*This package is not compatible with belongsToMany relationships due to the indexation of entries. It is recommended not to use this package until I submit a solution to index collections properly*
+
+
 ## Utility classes for Laravel >= 5.8 
 ### Highest Laravel compatibily tested as of this readme : 7.9.2
 
@@ -36,6 +42,11 @@ Base Model class offers:
 <br> `MyModel::where(...)->first_and_remember();`
 
 <br>Collection as results of queries on a Model return an instance of `khwadj\Eloquent\Collection` that is indexed by primary key
+
+**CAREFUL : THIS WILL BREAK EAGERLOADING OF BELONGSTOMANY RELATIONSHIPS**
+
+*This package is not compatible with belongsToMany relationships due to the indexation of entries. It is recommended not to use this package until I submit a solution to index collections properly*
+
 
 ```
 $models = MyModel::all();
