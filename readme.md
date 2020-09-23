@@ -1,5 +1,5 @@
 
-**DISCLAIMER : ELOQUENT FUNCTIONS OF THIS MACKAGE WILL BREAK EAGERLOADING OF BELONGSTOMANY RELATIONSHIPS**
+**DISCLAIMER : ELOQUENT FUNCTIONS OF THIS PACKAGE WILL BREAK EAGERLOADING OF BELONGSTOMANY RELATIONSHIPS**
 
 *This package is not compatible with belongsToMany relationships due to the indexation of entries. It is recommended not to use this package until I submit a solution to index collections properly*
 
